@@ -1,0 +1,78 @@
+:root {
+    --main-bg-color: rgb(196, 196, 196);
+    --main-btn-color: rgb(238, 130, 238);
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main {
+    height: 100vh;
+    background-color: var(--main-bg-color);
+  }
+
+  .container {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    width: 50vh;
+    height: 50vh;
+    margin: auto;
+    transform: translate(0, 50%);
+    border: 4px solid black;
+  }
+  
+  .btns {
+    position: relative;
+    top: 25vh;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .slider, .rainbow, .eraser, .clear {
+    height: 2.5vh;
+    width: 10vh;
+  }
+
+  .main-header {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    font-weight: bolder;
+  }
+
+  .rainbow {
+    border: none;
+    border-radius:8px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: red;
+    background-image: linear-gradient(to right, Red , Orange, Yellow, Green, Blue, Indigo, Violet);
+  }
+
+  .eraser {
+    border: none;
+    border-radius:8px;
+    background-color: var(--main-btn-color);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+
+  .clear {
+    border: none;
+    border-radius:8px;
+    background-color: var(--main-btn-color);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+
+  .slider-txt {
+    font-weight: bold;
+    font-size: 1.5vh;
+  }
+
+ 
