@@ -1,3 +1,12 @@
+const DEFAULT_SIZE = 16;
+const DEFAULT_MODE = "color"
+const DEFAULT_COLOR = "#000000";
+let CURRENT_SIZE = DEFAULT_SIZE;
+let CURRENT_MODE = DEFAULT_MODE;
+
+
+
+
 let slider = document.getElementById("sliderGrid")
 let sliderTxt = document.getElementById("slidertxt")
 let board = document.getElementById("container")
@@ -30,17 +39,50 @@ slider.addEventListener('input', function() {
 });
 
 // makes 16x16 grid
-makeRows(16, 16);
+makeRows(DEFAULT_SIZE, DEFAULT_SIZE); 
 
 
-let color = document.querySelector("colorMode")
+let colorValue = document.getElementById("colorMode").value;
+let color = document.getElementById("colorMode");
 let rnbwMode = document.getElementById("rnbwMode");
-let erase = document.getElementById("erase");
-let clear = document.getElementById("clr");
+const erase = document.getElementById("erase");
+const clear = document.getElementById("clr");
+let items = document.querySelectorAll(".gridItem");
+let CURRENT_COLOR = colorValue;
+
+color.addEventListener("input", function() {
+  let CURRENT_COLOR = color.value;
+console.log(CURRENT_COLOR);
+});
 
 
 
+color.addEventListener('click', function() {
+  let CURRENT_MODE = "color";
+  console.log(CURRENT_MODE);
+});
+
+rnbwMode.addEventListener("click", function() {
+  let CURRENT_MODE = "rnbw";
+  console.log(CURRENT_MODE);
+});
+
+erase.addEventListener("click", function() {
+  let CURRENT_MODE = "erase";
+  console.log(CURRENT_MODE);
+});
+
+clear.addEventListener("click", function() {
+  let CURRENT_MODE = "clear";
+  console.log(CURRENT_MODE);
+});
 
 
-
-
+if (CURRENT_MODE === "color") {
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", function() {
+      let CURRENT_COLOR = color.value;
+      item.style.backgroundColor = CURRENT_COLOR;
+    });
+  });
+}
