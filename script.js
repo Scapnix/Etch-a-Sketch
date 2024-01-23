@@ -1,16 +1,17 @@
-const DEFAULT_SIZE = 16;
-const DEFAULT_MODE = "color"
-const DEFAULT_COLOR = "#000000";
-let CURRENT_SIZE = DEFAULT_SIZE;
-let CURRENT_MODE = DEFAULT_MODE;
-
-
+let DEFAULT_SIZE = 16;
+let colors = "black";
 
 
 let slider = document.getElementById("sliderGrid")
 let sliderTxt = document.getElementById("slidertxt")
 let board = document.getElementById("container")
 let squares = document.querySelectorAll("gridB")
+let colorValue = document.getElementById("colorMode").value;
+let color = document.getElementById("colorMode");
+let rnbwMode = document.getElementById("rnbwMode");
+let erase = document.getElementById("erase");
+let clear = document.getElementById("clr");
+let items = document.querySelectorAll(".gridItem");
 
 function makeRows(size) {
 
@@ -22,67 +23,40 @@ function makeRows(size) {
 let amount = size * size;
   for (let i = 0; i < amount; i++) {
     let cell = document.createElement("div");
+    cell.addEventListener("mouseover", changeColor)
+    cell.backgroundColor = "white";
     container.appendChild(cell).className = "gridItem";
   }
-
 }
 }
 
 slider.addEventListener('input', function() {
-
-
   let sliderValue = slider.value;
   sliderTxt.textContent = slider.value + "x" + slider.value;
 
   makeRows(sliderValue, sliderValue);
-
 });
 
 // makes 16x16 grid
 makeRows(DEFAULT_SIZE, DEFAULT_SIZE); 
 
+color.addEventListener('input', function changeDraw() {
+  colors = color.value
+})
 
-let colorValue = document.getElementById("colorMode").value;
-let color = document.getElementById("colorMode");
-let rnbwMode = document.getElementById("rnbwMode");
-const erase = document.getElementById("erase");
-const clear = document.getElementById("clr");
-let items = document.querySelectorAll(".gridItem");
-let CURRENT_COLOR = colorValue;
+function changeColor() {
+  if (colors === "random") {
+  this.style.backgroundColor = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
 
-color.addEventListener("input", function() {
-  let CURRENT_COLOR = color.value;
-console.log(CURRENT_COLOR);
-});
+  }else {
+  this.style.backgroundColor = colors;
+  }
+}
 
+function changeMode(choise) {
+  colors = choise;
+}
 
-
-color.addEventListener('click', function() {
-  let CURRENT_MODE = "color";
-  console.log(CURRENT_MODE);
-});
-
-rnbwMode.addEventListener("click", function() {
-  let CURRENT_MODE = "rnbw";
-  console.log(CURRENT_MODE);
-});
-
-erase.addEventListener("click", function() {
-  let CURRENT_MODE = "erase";
-  console.log(CURRENT_MODE);
-});
-
-clear.addEventListener("click", function() {
-  let CURRENT_MODE = "clear";
-  console.log(CURRENT_MODE);
-});
-
-
-if (CURRENT_MODE === "color") {
-  items.forEach((item) => {
-    item.addEventListener("mouseenter", function() {
-      let CURRENT_COLOR = color.value;
-      item.style.backgroundColor = CURRENT_COLOR;
-    });
-  });
+function clearBoard() {
+  document.querySelectorAll(".gridItem").forEach((gridB) => gridB.style.backgroundColor = "white");
 }
