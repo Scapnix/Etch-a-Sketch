@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="script.js" defer></script>
     <title>Etch-a-sketch</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <header>
-            <div class="main-header">Etch-a-sketch</div>
-        </header>
-        <div class="other">
+      <header>
+        <div class="main-header">Etch-a-sketch</div>
+      </header>
+      <div class="other">
         <div class="btns">
-        <input type="color" name="Color mode" id="colorMode" class="one-color" value="#000000" onclick="changeMode('black')">
-        <button class="rainbow" id="rnbwMode" onclick="changeMode('random')">Rainbow</button>
-        <button class="eraser" id="erase" onclick="changeMode('white')">Eraser</button>
-        <button class="clear" id="clr" onclick="clearBoard('white')">Clear</button>
-        <input id="sliderGrid" type="range" min="1" max="64" value="16" class="slider">
-        <p id="slidertxt" class="slider-txt">16x16</p>
+          <input
+            type="color"
+            name="Color mode"
+            id="colorMode"
+            class="one-color"
+            value="#000000"
+            onclick="changeMode('black')"
+          />
+          <button class="rainbow" id="rnbwMode" onclick="changeMode('random')">
+            Rainbow
+          </button>
+          <button class="eraser" id="erase" onclick="changeMode('white')">
+            Eraser
+          </button>
+          <button class="clear" id="clr" onclick="clearBoard('white')">
+            Clear
+          </button>
+          <input
+            id="sliderGrid"
+            type="range"
+            min="1"
+            max="64"
+            value="16"
+            class="slider"
+          />
+          <p id="slidertxt" class="slider-txt">16x16</p>
+        </div>
+        <div class="display">
+          <div id="container" class="container"></div>
+        </div>
+      </div>
+      <div class="endPara">
+        <p class="end">This is apart of The Odin Project</p>
+      </div>
     </div>
-        <div id="container" class="container"></div>
-    </div>
-    <p class="end">This is apart of The Odin Project</p>
-
-</div>
-</body>
+  </body>
 </html>
